@@ -105,6 +105,13 @@
         .pulse-subtle {
             animation: subtlePulse 3s infinite ease-in-out;
         }
+
+        /* Mobile Drawer Solid Background & Isolation Fix */
+        #mobileDrawerContent {
+            background-color: #FAF6F0 !important;
+            opacity: 1 !important;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-cream-100 text-coffee-900 font-sans antialiased selection:bg-olive-600 selection:text-white">
@@ -164,44 +171,48 @@
                 </button>
             </div>
         </div>
+    </header>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobileDrawer" class="fixed inset-0 bg-coffee-950/70 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300">
-            <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-[#FAF6F0] z-50 shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out border-l border-cream-300/80" id="mobileDrawerContent">
-                <div>
-                    <div class="flex items-center justify-between pb-6 border-b border-cream-300">
-                        <div>
-                            <span class="font-serif text-2xl font-bold text-coffee-900">Casa Vero</span>
-                            <span class="block text-[10px] tracking-widest text-coffee-700 uppercase">Café, Lanches & Empório</span>
-                        </div>
-                        <button id="closeDrawerBtn" aria-label="Fechar Menu" class="text-coffee-800 hover:text-coffee-950 p-2">
-                            <i class="fa-solid fa-xmark text-2xl"></i>
-                        </button>
+    <!-- Mobile Drawer Navigation (Isolated Outside Header) -->
+    <div id="mobileDrawer" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
+        <!-- Backdrop Overlay (Fades In/Out) -->
+        <div id="mobileDrawerBackdrop" class="fixed inset-0 bg-coffee-950/70 backdrop-blur-sm opacity-0 transition-opacity duration-300 ease-in-out"></div>
+
+        <!-- Drawer Content Panel (100% Solid Opaque Background) -->
+        <div id="mobileDrawerContent" class="fixed inset-y-0 right-0 max-w-xs w-full bg-[#FAF6F0] z-10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out border-l border-cream-300 overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-cream-300">
+                    <div>
+                        <span class="font-serif text-2xl font-bold text-coffee-900">Casa Vero</span>
+                        <span class="block text-[10px] tracking-widest text-coffee-700 uppercase">Café, Lanches & Empório</span>
                     </div>
-
-                    <nav class="mt-8 flex flex-col space-y-4 text-base font-medium text-coffee-900">
-                        <a href="#inicio" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Início</a>
-                        <a href="#sobre" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Sobre</a>
-                        <a href="#cardapio" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Cardápio</a>
-                        <a href="#galeria" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Galeria</a>
-                        <a href="#experiencia" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Experiência</a>
-                        <a href="#contato" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Contato</a>
-                    </nav>
+                    <button id="closeDrawerBtn" aria-label="Fechar Menu" class="text-coffee-800 hover:text-coffee-950 p-2 rounded-lg hover:bg-cream-200 transition">
+                        <i class="fa-solid fa-xmark text-2xl"></i>
+                    </button>
                 </div>
 
-                <div class="space-y-4 pt-6 border-t border-cream-300">
-                    <a href="https://wa.me/5554993991805?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Casa%20Vero." target="_blank" class="w-full bg-olive-600 hover:bg-olive-700 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center space-x-2 shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-xl"></i>
-                        <span>Contato WhatsApp</span>
-                    </a>
-                    <div class="text-xs text-center text-coffee-700">
-                        <p>Rua Marechal Deodoro, 39 — Centro</p>
-                        <p class="mt-0.5">Erechim — RS</p>
-                    </div>
+                <nav class="mt-8 flex flex-col space-y-4 text-base font-medium text-coffee-900">
+                    <a href="#inicio" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700 transition">Início</a>
+                    <a href="#sobre" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700 transition">Sobre</a>
+                    <a href="#cardapio" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700 transition">Cardápio</a>
+                    <a href="#galeria" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700 transition">Galeria</a>
+                    <a href="#experiencia" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700 transition">Experiência</a>
+                    <a href="#contato" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700 transition">Contato</a>
+                </nav>
+            </div>
+
+            <div class="space-y-4 pt-6 border-t border-cream-300">
+                <a href="https://wa.me/5554993991805?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Casa%20Vero." target="_blank" class="w-full bg-olive-600 hover:bg-olive-700 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center space-x-2 shadow-sm transition">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Contato WhatsApp</span>
+                </a>
+                <div class="text-xs text-center text-coffee-700">
+                    <p>Rua Marechal Deodoro, 39 — Centro</p>
+                    <p class="mt-0.5">Erechim — RS</p>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     <main>
         <section id="inicio" class="relative pt-8 pb-16 md:py-24 overflow-hidden">
@@ -909,21 +920,28 @@
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const closeDrawerBtn = document.getElementById('closeDrawerBtn');
         const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
         const mobileDrawerContent = document.getElementById('mobileDrawerContent');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         function openDrawer() {
+            if (!mobileDrawer) return;
             mobileDrawer.classList.remove('hidden');
-            setTimeout(() => {
-                mobileDrawer.classList.remove('opacity-0');
-                mobileDrawerContent.classList.remove('translate-x-full');
-            }, 10);
+            // Force browser layout reflow to ensure smooth css transition
+            void mobileDrawer.offsetWidth;
+            mobileDrawerBackdrop.classList.remove('opacity-0');
+            mobileDrawerBackdrop.classList.add('opacity-100');
+            mobileDrawerContent.classList.remove('translate-x-full');
+            mobileDrawerContent.classList.add('translate-x-0');
             document.body.style.overflow = 'hidden';
         }
 
         function closeDrawer() {
+            if (!mobileDrawer) return;
+            mobileDrawerBackdrop.classList.remove('opacity-100');
+            mobileDrawerBackdrop.classList.add('opacity-0');
+            mobileDrawerContent.classList.remove('translate-x-0');
             mobileDrawerContent.classList.add('translate-x-full');
-            mobileDrawer.classList.add('opacity-0');
             setTimeout(() => {
                 mobileDrawer.classList.add('hidden');
                 document.body.style.overflow = '';
@@ -932,11 +950,7 @@
 
         if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
         if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
-        if (mobileDrawer) {
-            mobileDrawer.addEventListener('click', (e) => {
-                if (e.target === mobileDrawer) closeDrawer();
-            });
-        }
+        if (mobileDrawerBackdrop) mobileDrawerBackdrop.addEventListener('click', closeDrawer);
         mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
         // Quick WhatsApp Message Sender Function
