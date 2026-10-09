@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Vero — Café, Lanches & Empório | Centro, Erechim RS</title>
+    <meta name="description" content="Casa Vero — Seu momento especial começa aqui. Cafés especiais, lanches artesanais e produtos selecionados de empório no Centro de Erechim, RS.">
+    <meta name="keywords" content="Casa Vero, Café Erechim, Empório Erechim, Cafeteria Erechim, Lanches Centro Erechim, Café Especial">
+    <meta property="og:title" content="Casa Vero — Café, Lanches & Empório">
+    <meta property="og:description" content="Um convite para apreciar um bom café, descobrir sabores e aproveitar momentos especiais em Erechim.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FDFCF9',
+                            100: '#FAF6F0',
+                            200: '#F5EFE6',
+                            300: '#EFE8DC',
+                            400: '#E3D7C5',
+                        },
+                        coffee: {
+                            500: '#8C6747',
+                            700: '#5C3D2E',
+                            800: '#3D271D',
+                            900: '#2C1D11',
+                            950: '#1A110A',
+                        },
+                        olive: {
+                            100: '#F0F3EC',
+                            500: '#6B705C',
+                            600: '#5F6F52',
+                            700: '#4A5B3E',
+                            800: '#38462F',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'warm': '0 10px 30px -10px rgba(61, 39, 29, 0.08)',
+                        'warm-lg': '0 20px 40px -15px rgba(44, 29, 17, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth subtle hover transitions */
+        .img-zoom {
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .img-container:hover .img-zoom {
+            transform: scale(1.05);
+        }
+
+        /* Glassmorphism effects */
+        .glass-nav {
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card {
+            background: rgba(255, 253, 249, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C8BBA8;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5C3D2E;
+        }
+
+        /* Subtle pulsing animation */
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        .pulse-subtle {
+            animation: subtlePulse 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-cream-100 text-coffee-900 font-sans antialiased selection:bg-olive-600 selection:text-white">
+
+    <div id="proposalBanner" class="bg-coffee-900 text-cream-100 text-xs md:text-sm py-2 px-4 relative border-b border-coffee-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="font-medium text-cream-200">Demonstração Interativa de Presença Digital — Proposta Comercial Independentemente Elaborada para a <strong class="text-white">Casa Vero</strong>.</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/5554993991805?text=Olá!%20Estou%20vendo%20a%20proposta%20de%20site%20da%20Casa%20Vero." target="_blank" class="bg-olive-600 hover:bg-olive-700 text-white px-3 py-1 rounded-full font-medium transition text-xs flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-brands fa-whatsapp"></i> Falar sobre esta Proposta
+                </a>
+                <button onclick="document.getElementById('proposalBanner').style.display='none'" class="text-cream-300 hover:text-white p-1" title="Fechar aviso">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 glass-nav border-b border-cream-300/60 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 md:h-24">
+                
+                <!-- Logo -->
+                <a href="#inicio" class="flex flex-col group">
+                    <span class="font-serif text-2xl md:text-3xl font-bold tracking-tight text-coffee-900 group-hover:text-olive-700 transition-colors">
+                        Casa Vero
+                    </span>
+                    <span class="text-[10px] md:text-xs tracking-[0.2em] uppercase font-medium text-coffee-700 -mt-1">
+                        Café, Lanches & Empório
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-coffee-800">
+                    <a href="#inicio" class="hover:text-olive-700 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-olive-600 hover:after:w-full after:transition-all">Início</a>
+                    <a href="#sobre" class="hover:text-olive-700 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-olive-600 hover:after:w-full after:transition-all">Sobre</a>
+                    <a href="#cardapio" class="hover:text-olive-700 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-olive-600 hover:after:w-full after:transition-all">Cardápio</a>
+                    <a href="#galeria" class="hover:text-olive-700 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-olive-600 hover:after:w-full after:transition-all">Galeria</a>
+                    <a href="#experiencia" class="hover:text-olive-700 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-olive-600 hover:after:w-full after:transition-all">Experiência</a>
+                    <a href="#contato" class="hover:text-olive-700 transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-olive-600 hover:after:w-full after:transition-all">Contato</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="https://wa.me/5554993991805?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Casa%20Vero." target="_blank" rel="noopener noreferrer" class="bg-olive-600 hover:bg-olive-700 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-sm hover:shadow transition duration-200 flex items-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button type="button" id="mobileMenuBtn" aria-label="Abrir Menu" class="md:hidden text-coffee-900 p-2 rounded-lg hover:bg-cream-200 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="fixed inset-0 bg-coffee-950/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300">
+            <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-cream-50 shadow-2xl p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out" id="mobileDrawerContent">
+                <div>
+                    <div class="flex items-center justify-between pb-6 border-b border-cream-300">
+                        <div>
+                            <span class="font-serif text-2xl font-bold text-coffee-900">Casa Vero</span>
+                            <span class="block text-[10px] tracking-widest text-coffee-700 uppercase">Café, Lanches & Empório</span>
+                        </div>
+                        <button id="closeDrawerBtn" aria-label="Fechar Menu" class="text-coffee-800 hover:text-coffee-950 p-2">
+                            <i class="fa-solid fa-xmark text-2xl"></i>
+                        </button>
+                    </div>
+
+                    <nav class="mt-8 flex flex-col space-y-4 text-base font-medium text-coffee-900">
+                        <a href="#inicio" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Início</a>
+                        <a href="#sobre" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Sobre</a>
+                        <a href="#cardapio" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Cardápio</a>
+                        <a href="#galeria" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Galeria</a>
+                        <a href="#experiencia" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Experiência</a>
+                        <a href="#contato" class="mobile-link py-2 border-b border-cream-200 hover:text-olive-700">Contato</a>
+                    </nav>
+                </div>
+
+                <div class="space-y-4 pt-6 border-t border-cream-300">
+                    <a href="https://wa.me/5554993991805?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Casa%20Vero." target="_blank" class="w-full bg-olive-600 hover:bg-olive-700 text-white font-semibold py-3 px-4 rounded-xl flex items-center justify-center space-x-2 shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Contato WhatsApp</span>
+                    </a>
+                    <div class="text-xs text-center text-coffee-700">
+                        <p>Rua Marechal Deodoro, 39 — Centro</p>
+                        <p class="mt-0.5">Erechim — RS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="relative pt-8 pb-16 md:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="lg:col-span-6 space-y-6 text-left">
+                        <div class="inline-flex items-center space-x-2 bg-cream-200/80 border border-cream-300 px-3.5 py-1.5 rounded-full text-xs font-semibold text-olive-800">
+                            <i class="fa-solid fa-location-dot text-olive-600"></i>
+                            <span>Centro de Erechim — RS</span>
+                        </div>
+
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-coffee-950 leading-[1.15] tracking-tight">
+                            Seu momento especial <span class="italic font-normal text-olive-700">começa aqui.</span>
+                        </h1>
+
+                        <p class="text-lg sm:text-xl text-coffee-800 font-normal leading-relaxed max-w-xl">
+                            Um convite para apreciar um bom café, descobrir sabores e aproveitar momentos especiais.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                            <a href="#sobre" class="bg-coffee-900 hover:bg-coffee-800 text-cream-50 font-semibold px-7 py-4 rounded-full text-center transition duration-200 shadow-warm hover:shadow-warm-lg flex items-center justify-center space-x-2 group">
+                                <span>Conheça nosso espaço</span>
+                                <i class="fa-solid fa-arrow-down text-xs group-hover:translate-y-0.5 transition-transform"></i>
+                            </a>
+                            
+                            <a href="#localizacao" class="border-2 border-coffee-800 hover:bg-coffee-900 hover:text-cream-50 text-coffee-900 font-semibold px-7 py-4 rounded-full text-center transition duration-200 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-route text-olive-600"></i>
+                                <span>Como chegar</span>
+                            </a>
+                        </div>
+
+                        <!-- Key Pillars Grid -->
+                        <div class="pt-8 border-t border-cream-300/80 grid grid-cols-3 gap-4 text-center sm:text-left">
+                            <div>
+                                <span class="block font-serif text-xl sm:text-2xl font-bold text-coffee-900">Cafés</span>
+                                <span class="text-xs text-coffee-700">Seletos & Aromáticos</span>
+                            </div>
+                            <div class="border-l border-cream-300 pl-4">
+                                <span class="block font-serif text-xl sm:text-2xl font-bold text-coffee-900">Lanches</span>
+                                <span class="text-xs text-coffee-700">Opções Artesanais</span>
+                            </div>
+                            <div class="border-l border-cream-300 pl-4">
+                                <span class="block font-serif text-xl sm:text-2xl font-bold text-coffee-900">Empório</span>
+                                <span class="text-xs text-coffee-700">Produtos Selecionados</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Hero Editorial Photo Grid -->
+                    <div class="lg:col-span-6 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <!-- Background Accent Glow -->
+                            <div class="absolute -top-6 -right-6 w-72 h-72 bg-olive-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+                            <div class="absolute -bottom-6 -left-6 w-72 h-72 bg-coffee-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-4">
+                                    <div class="img-container overflow-hidden rounded-2xl shadow-warm border-4 border-cream-50">
+                                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Espresso artesanal Casa Vero" class="img-zoom w-full h-64 object-cover">
+                                    </div>
+                                    <div class="img-container overflow-hidden rounded-2xl shadow-warm border-4 border-cream-50">
+                                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Pães e Croissants artesanais" class="img-zoom w-full h-44 object-cover">
+                                    </div>
+                                </div>
+                                <div class="space-y-4 pt-8">
+                                    <div class="img-container overflow-hidden rounded-2xl shadow-warm border-4 border-cream-50">
+                                        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Ambiente aconchegante da cafeteria" class="img-zoom w-full h-48 object-cover">
+                                    </div>
+                                    <div class="img-container overflow-hidden rounded-2xl shadow-warm border-4 border-cream-50">
+                                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Produtos de empório" class="img-zoom w-full h-60 object-cover">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rating Floating Badge -->
+                            <div class="absolute -bottom-4 -left-2 sm:left-4 glass-card border border-cream-300 p-4 rounded-2xl shadow-warm-lg flex items-center space-x-3">
+                                <div class="bg-amber-100 text-amber-800 p-2.5 rounded-xl text-lg font-bold flex items-center justify-center">
+                                    <i class="fa-solid fa-star text-amber-500 mr-1.5"></i> 4.8
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-coffee-900">Avaliação no Google</p>
+                                    <p class="text-[11px] text-coffee-700">16 avaliações verificadas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="py-20 bg-cream-200/60 border-y border-cream-300/70">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Image Stack -->
+                    <div class="lg:col-span-5 relative order-2 lg:order-1">
+                        <div class="relative">
+                            <div class="img-container rounded-3xl overflow-hidden shadow-warm-lg border-8 border-cream-50">
+                                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=900&q=80" alt="Ambiente interno aconchegante da Casa Vero" class="img-zoom w-full h-[450px] object-cover">
+                            </div>
+                            <div class="absolute -bottom-8 -right-4 sm:-right-8 bg-coffee-900 text-cream-100 p-6 rounded-2xl max-w-xs shadow-warm border border-coffee-800 hidden sm:block">
+                                <p class="font-serif italic text-sm leading-relaxed text-cream-200">
+                                    "Ambiente muito aconchegante, super recomendo."
+                                </p>
+                                <p class="text-xs text-olive-400 mt-2 font-medium">— Cliente no Google Maps</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Text Content -->
+                    <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                        <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-olive-700">
+                            <span class="w-8 h-0.5 bg-olive-600"></span>
+                            <span>Sobre a Casa Vero</span>
+                        </div>
+
+                        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-coffee-950 leading-tight">
+                            Mais que uma pausa, <br><span class="italic font-normal text-olive-700">uma experiência.</span>
+                        </h2>
+
+                        <div class="space-y-4 text-coffee-800 text-base sm:text-lg leading-relaxed">
+                            <p>
+                                Localizada no coração do Centro de Erechim, a <strong>Casa Vero — Café, Lanches & Empório</strong> foi pensada para quem busca um refúgio acolhedor durante o dia. Seja para começar a manhã com energia, fazer uma pausa revitalizante no meio da tarde ou encontrar produtos artesanais diferenciados.
+                            </p>
+                            <p>
+                                Aqui, cada detalhe convida a desacelerar. O aroma constante de café recém-passado se mistura a um ambiente aconchegante, ideal para reuniões informais, conversas com amigos ou momentos de tranquilidade solo.
+                            </p>
+                        </div>
+
+                        <!-- 3 Core Highlight Features -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+                            <div class="p-4 bg-cream-50 rounded-2xl border border-cream-300/80 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-olive-100 text-olive-700 flex items-center justify-center text-lg mb-3">
+                                    <i class="fa-solid fa-mug-hot"></i>
+                                </div>
+                                <h3 class="font-serif font-bold text-coffee-900 text-base">Café Cuidadoso</h3>
+                                <p class="text-xs text-coffee-700 mt-1 leading-normal">Bebidas quentes e geladas preparadas com carinho e precisão.</p>
+                            </div>
+
+                            <div class="p-4 bg-cream-50 rounded-2xl border border-cream-300/80 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-olive-100 text-olive-700 flex items-center justify-center text-lg mb-3">
+                                    <i class="fa-solid fa-bread-slice"></i>
+                                </div>
+                                <h3 class="font-serif font-bold text-coffee-900 text-base">Lanches & Doces</h3>
+                                <p class="text-xs text-coffee-700 mt-1 leading-normal">Acompanhamentos saborosos para qualquer momento da sua rotina.</p>
+                            </div>
+
+                            <div class="p-4 bg-cream-50 rounded-2xl border border-cream-300/80 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-olive-100 text-olive-700 flex items-center justify-center text-lg mb-3">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                                <h3 class="font-serif font-bold text-coffee-900 text-base">Empório Selecionado</h3>
+                                <p class="text-xs text-coffee-700 mt-1 leading-normal">Itens especiais para levar o sabor da Casa Vero para a sua casa.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="cardapio" class="py-20 bg-cream-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-olive-700 mb-2">
+                        <span class="w-6 h-0.5 bg-olive-600"></span>
+                        <span>Destaques do Nosso Espaço</span>
+                        <span class="w-6 h-0.5 bg-olive-600"></span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-coffee-950">
+                        O que você encontra na Casa Vero
+                    </h2>
+                    <p class="text-coffee-700 text-base sm:text-lg mt-4">
+                        Conheça as categorias principais que preparamos para tornar seu momento memorável.
+                    </p>
+                </div>
+
+                <!-- 4 Highlight Categories Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Category 1: Cafés e Bebidas -->
+                    <div class="bg-cream-50 rounded-2xl overflow-hidden border border-cream-300 shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col group">
+                        <div class="img-container h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=700&q=80" alt="Cafés e Bebidas" class="img-zoom w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-coffee-900/90 text-cream-100 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                Especialidade
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-coffee-900 group-hover:text-olive-700 transition-colors">
+                                    Cafés & Bebidas
+                                </h3>
+                                <p class="text-sm text-coffee-700 mt-2 leading-relaxed">
+                                    Espressos encorpados, cappuccinos cremosos, métodos filtrados e bebidas geladas preparadas com grãos selecionados.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-cream-200 text-xs text-coffee-600 flex items-center justify-between">
+                                <span>Opções quentes e geladas</span>
+                                <i class="fa-solid fa-mug-saucer text-olive-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Lanches -->
+                    <div class="bg-cream-50 rounded-2xl overflow-hidden border border-cream-300 shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col group">
+                        <div class="img-container h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80" alt="Lanches Artesanais" class="img-zoom w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-coffee-900/90 text-cream-100 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                Salgados
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-coffee-900 group-hover:text-olive-700 transition-colors">
+                                    Lanches
+                                </h3>
+                                <p class="text-sm text-coffee-700 mt-2 leading-relaxed">
+                                    Sanduíches especiais, quiches levinhas, toasts crocantes e salgados preparados para matar a fome no momento certo.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-cream-200 text-xs text-coffee-600 flex items-center justify-between">
+                                <span>Preparados na hora</span>
+                                <i class="fa-solid fa-sandwich text-olive-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Doces e Acompanhamentos -->
+                    <div class="bg-cream-50 rounded-2xl overflow-hidden border border-cream-300 shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col group">
+                        <div class="img-container h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80" alt="Doces e Tortas" class="img-zoom w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-coffee-900/90 text-cream-100 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                Confeitaria
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-coffee-900 group-hover:text-olive-700 transition-colors">
+                                    Doces & Acompanhamentos
+                                </h3>
+                                <p class="text-sm text-coffee-700 mt-2 leading-relaxed">
+                                    Bolos caseiros, tortas delicadas, croissants e doces selecionados que harmonizam perfeitamente com seu café.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-cream-200 text-xs text-coffee-600 flex items-center justify-between">
+                                <span>Combinação perfeita</span>
+                                <i class="fa-solid fa-cookie-bite text-olive-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Produtos de Empório -->
+                    <div class="bg-cream-50 rounded-2xl overflow-hidden border border-cream-300 shadow-warm hover:shadow-warm-lg transition-all duration-300 flex flex-col group">
+                        <div class="img-container h-52 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?auto=format&fit=crop&w=700&q=80" alt="Produtos de Empório" class="img-zoom w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-olive-700 text-cream-100 text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-sm">
+                                Para Levar
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-2xl font-bold text-coffee-900 group-hover:text-olive-700 transition-colors">
+                                    Produtos de Empório
+                                </h3>
+                                <p class="text-sm text-coffee-700 mt-2 leading-relaxed">
+                                    Cafés em grão ou moídos, geleias artesanais, azeites, biscoitos finos e itens exclusivos de pequenos produtores.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-cream-200 text-xs text-coffee-600 flex items-center justify-between">
+                                <span>Seleção artesanal</span>
+                                <i class="fa-solid fa-jar text-olive-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Disclaimer & CTA Box -->
+                <div class="mt-14 bg-cream-200/80 rounded-2xl p-6 sm:p-8 border border-cream-300 text-center max-w-3xl mx-auto space-y-4">
+                    <p class="text-xs text-coffee-700 leading-relaxed italic">
+                        <i class="fa-solid fa-circle-info text-olive-600 mr-1"></i>
+                        Imagens ilustrativas. Os itens, sabores e disponibilidade do cardápio estão sujeitos a alterações e devem ser confirmados diretamente com o estabelecimento.
+                    </p>
+                    <div>
+                        <a href="https://wa.me/5554993991805?text=Olá!%20Gostaria%20de%20consultar%20o%20cardápio%20atualizado%20da%20Casa%20Vero." target="_blank" class="inline-flex items-center space-x-2 bg-olive-600 hover:bg-olive-700 text-white font-semibold px-8 py-4 rounded-full transition shadow-md hover:shadow-lg text-sm sm:text-base">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Consulte nosso cardápio pelo WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="galeria" class="py-20 bg-cream-200/50 border-t border-cream-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-olive-700 mb-2">
+                            <span class="w-6 h-0.5 bg-olive-600"></span>
+                            <span>Aconchego & Sabores</span>
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-coffee-950">
+                            Galeria de Inspiração
+                        </h2>
+                    </div>
+                    <p class="text-coffee-700 text-sm sm:text-base max-w-md mt-4 md:mt-0">
+                        Um vislumbre visual dos momentos, aromas e detalhes que compõem a atmosfera de um café especial.
+                    </p>
+                </div>
+
+                <!-- Asymmetric Editorial Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+                    
+                    <!-- Large Feature Image 1 -->
+                    <div class="lg:col-span-8 img-container relative rounded-2xl overflow-hidden shadow-warm border-2 border-cream-50 group h-80 lg:h-96 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80', 'Café especial recém-preparado')">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80" alt="Momentos de café na Casa Vero" class="img-zoom w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex items-end">
+                            <span class="text-cream-100 font-serif text-lg font-medium">Momentos de Pausa & Leitura</span>
+                        </div>
+                    </div>
+
+                    <!-- Tall Feature Image 2 -->
+                    <div class="lg:col-span-4 img-container relative rounded-2xl overflow-hidden shadow-warm border-2 border-cream-50 group h-80 lg:h-96 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80', 'Grãos selecionados e latte art')">
+                        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Latte art e grãos artesanais" class="img-zoom w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex items-end">
+                            <span class="text-cream-100 font-serif text-lg font-medium">Latte Art com Precisão</span>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature Image 3 -->
+                    <div class="lg:col-span-4 img-container relative rounded-2xl overflow-hidden shadow-warm border-2 border-cream-50 group h-64 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80', 'Pães e itens folhados frescos')">
+                        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Croissants e pães doces" class="img-zoom w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex items-end">
+                            <span class="text-cream-100 font-serif text-lg font-medium">Fornadas Diárias</span>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature Image 4 -->
+                    <div class="lg:col-span-4 img-container relative rounded-2xl overflow-hidden shadow-warm border-2 border-cream-50 group h-64 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80', 'Prateleiras de empório com itens artesanais')">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Empório e geleias artesanais" class="img-zoom w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex items-end">
+                            <span class="text-cream-100 font-serif text-lg font-medium">Produtos do Empório</span>
+                        </div>
+                    </div>
+
+                    <!-- Small Feature Image 5 -->
+                    <div class="lg:col-span-4 img-container relative rounded-2xl overflow-hidden shadow-warm border-2 border-cream-50 group h-64 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80', 'Ambiente de cafeteria iluminado')">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Detalhes de iluminação e mesas" class="img-zoom w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-coffee-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex items-end">
+                            <span class="text-cream-100 font-serif text-lg font-medium">Ambiente Acolhedor</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-4 text-center">
+                    <p class="text-[11px] text-coffee-600 italic">
+                        * Fotografias conceituais ilustrativas para demonstração de atmosfera gastronômica.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="experiencia" class="py-20 bg-coffee-900 text-cream-100 relative overflow-hidden">
+            <!-- Background Decorative Texture -->
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C8BBA8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl mx-auto text-center space-y-6">
+                    <span class="text-olive-400 text-xs font-bold uppercase tracking-widest">Sua Pausa no Centro</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight text-white">
+                        Um lugar para desacelerar <br><span class="italic font-normal text-cream-300">e aproveitar.</span>
+                    </h2>
+                    <p class="text-cream-200 text-base sm:text-lg leading-relaxed font-light">
+                        No ritmo acelerado da rotina no Centro de Erechim, a Casa Vero surge como um convite ao bem-estar. Um ambiente pensado para valorizar as coisas simples e boas da vida: um café feito na temperatura certa, um bom bate-papo e o aconchego de se sentir em casa.
+                    </p>
+                </div>
+
+                <!-- 4 Pillars Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+                    <div class="bg-coffee-800/80 border border-coffee-700/80 rounded-2xl p-6 backdrop-blur-sm">
+                        <span class="text-olive-400 font-serif text-3xl font-bold block mb-2">01</span>
+                        <h3 class="font-serif text-xl font-semibold text-white mb-2">Aroma Marcante</h3>
+                        <p class="text-xs text-cream-300 leading-relaxed">Grãos moídos com frescor para garantir xícaras de café ricas em sabor e personalidade.</p>
+                    </div>
+
+                    <div class="bg-coffee-800/80 border border-coffee-700/80 rounded-2xl p-6 backdrop-blur-sm">
+                        <span class="text-olive-400 font-serif text-3xl font-bold block mb-2">02</span>
+                        <h3 class="font-serif text-xl font-semibold text-white mb-2">Receitas Afetivas</h3>
+                        <p class="text-xs text-cream-300 leading-relaxed">Acompanhamentos doces e salgados selecionados para combinar com cada escolha.</p>
+                    </div>
+
+                    <div class="bg-coffee-800/80 border border-coffee-700/80 rounded-2xl p-6 backdrop-blur-sm">
+                        <span class="text-olive-400 font-serif text-3xl font-bold block mb-2">03</span>
+                        <h3 class="font-serif text-xl font-semibold text-white mb-2">Espaço Aconchegante</h3>
+                        <p class="text-xs text-cream-300 leading-relaxed">Mobiliário confortável e iluminação agradável para quem deseja descansar ou conversar.</p>
+                    </div>
+
+                    <div class="bg-coffee-800/80 border border-coffee-700/80 rounded-2xl p-6 backdrop-blur-sm">
+                        <span class="text-olive-400 font-serif text-3xl font-bold block mb-2">04</span>
+                        <h3 class="font-serif text-xl font-semibold text-white mb-2">Curadoria do Empório</h3>
+                        <p class="text-xs text-cream-300 leading-relaxed">Produtos especiais para levar um pedaço da experiência Casa Vero até você.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="py-20 bg-cream-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="max-w-3xl mx-auto text-center space-y-4">
+                    <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-olive-700">
+                        <span class="w-6 h-0.5 bg-olive-600"></span>
+                        <span>Avaliações Reais</span>
+                        <span class="w-6 h-0.5 bg-olive-600"></span>
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-950">
+                        Aprovado por quem visita
+                    </h2>
+                </div>
+
+                <!-- Google Rating Central Spotlight -->
+                <div class="mt-12 bg-cream-50 border border-cream-300 rounded-3xl p-8 sm:p-10 shadow-warm max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Rating Stats -->
+                        <div class="md:col-span-5 text-center md:text-left border-b md:border-b-0 md:border-r border-cream-300 pb-6 md:pb-0 md:pr-8 space-y-2">
+                            <div class="flex items-center justify-center md:justify-start space-x-2">
+                                <span class="font-serif text-5xl font-bold text-coffee-950">4,8</span>
+                                <div>
+                                    <div class="flex text-amber-500 text-lg">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-xs text-coffee-700 font-medium">de 5.0 estrelas</span>
+                                </div>
+                            </div>
+                            <p class="text-sm font-semibold text-coffee-900 pt-1">
+                                <i class="fa-brands fa-google text-blue-600 mr-1.5"></i> 16 Avaliações no Google Maps
+                            </p>
+                            <p class="text-xs text-coffee-600">
+                                Reconhecimento pela atmosfera acolhedora e qualidade do atendimento no Centro de Erechim.
+                            </p>
+                        </div>
+
+                        <!-- Featured Review Quote -->
+                        <div class="md:col-span-7 space-y-4">
+                            <div class="text-olive-600 text-2xl">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <blockquote class="font-serif text-xl sm:text-2xl text-coffee-950 italic leading-relaxed">
+                                “Ambiente muito aconchegante, super recomendo.”
+                            </blockquote>
+                            <div class="flex items-center space-x-3 pt-2">
+                                <div class="w-10 h-10 rounded-full bg-coffee-800 text-cream-100 font-bold flex items-center justify-center text-sm">
+                                    CV
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-coffee-900">Avaliação do Cliente</p>
+                                    <p class="text-[11px] text-coffee-600">Publicado no Google Maps</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contato" class="py-20 bg-cream-200/60 border-t border-cream-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Details Column -->
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-olive-700 mb-2">
+                                <span class="w-6 h-0.5 bg-olive-600"></span>
+                                <span>Localização & Contato</span>
+                            </div>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-coffee-950">
+                                Venha nos visitar
+                            </h2>
+                            <p class="text-coffee-700 text-sm sm:text-base mt-2">
+                                Estamos esperando por você no Centro de Erechim para uma experiência especial.
+                            </p>
+                        </div>
+
+                        <!-- Info Cards -->
+                        <div class="space-y-4">
+                            
+                            <!-- Address -->
+                            <div class="bg-cream-50 p-5 rounded-2xl border border-cream-300 flex items-start space-x-4 shadow-sm">
+                                <div class="w-11 h-11 rounded-xl bg-olive-100 text-olive-700 flex items-center justify-center text-lg shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h3 class="font-serif font-bold text-coffee-900 text-base">Endereço</h3>
+                                    <p class="text-sm text-coffee-800">
+                                        Rua Marechal Deodoro, 39 — Centro<br>
+                                        Erechim — RS, CEP 99700-314
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Phone / WhatsApp -->
+                            <div class="bg-cream-50 p-5 rounded-2xl border border-cream-300 flex items-start space-x-4 shadow-sm">
+                                <div class="w-11 h-11 rounded-xl bg-olive-100 text-olive-700 flex items-center justify-center text-lg shrink-0 mt-0.5">
+                                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                                </div>
+                                <div class="space-y-1">
+                                    <h3 class="font-serif font-bold text-coffee-900 text-base">Telefone & WhatsApp</h3>
+                                    <p class="text-sm text-coffee-800 font-semibold">
+                                        (54) 99399-1805
+                                    </p>
+                                    <p class="text-xs text-coffee-600">
+                                        Atendimento direto para dúvidas e informações do empório.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Price Range & Hours -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="bg-cream-50 p-4 rounded-2xl border border-cream-300 shadow-sm">
+                                    <span class="text-xs text-coffee-600 uppercase font-bold tracking-wider block mb-1">Faixa de Preço</span>
+                                    <span class="font-serif text-lg font-bold text-coffee-900">R$ 20 a R$ 40</span>
+                                    <span class="text-xs text-coffee-700 block">por pessoa</span>
+                                </div>
+
+                                <div class="bg-cream-50 p-4 rounded-2xl border border-cream-300 shadow-sm">
+                                    <span class="text-xs text-coffee-600 uppercase font-bold tracking-wider block mb-1">Funcionamento</span>
+                                    <span class="font-serif text-base font-bold text-coffee-900">Segunda a Sexta</span>
+                                    <span class="text-xs text-olive-700 font-medium block">Até as 18h30 *</span>
+                                </div>
+                            </div>
+
+                            <p class="text-[11px] text-coffee-600 italic">
+                                * Informação cadastrada no Google Maps indica fechamento às 18h30. Consulte feriados via WhatsApp.
+                            </p>
+
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <a href="https://wa.me/5554993991805?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20dúvida." target="_blank" class="flex-1 bg-olive-600 hover:bg-olive-700 text-white font-semibold py-3.5 px-5 rounded-full text-center transition flex items-center justify-center space-x-2 text-sm shadow">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Iniciar WhatsApp</span>
+                            </a>
+                            
+                            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro,+39,+Centro,+Erechim+-+RS,+99700-314" target="_blank" rel="noopener noreferrer" class="flex-1 bg-coffee-900 hover:bg-coffee-800 text-cream-50 font-semibold py-3.5 px-5 rounded-full text-center transition flex items-center justify-center space-x-2 text-sm shadow">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <span>Abrir no Google Maps</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Map Integration & Quick Message Column -->
+                    <div class="lg:col-span-7 flex flex-col space-y-6">
+                        
+                        <!-- Map Container -->
+                        <div id="localizacao" class="bg-cream-50 rounded-3xl overflow-hidden border border-cream-300 shadow-warm h-80 lg:h-96 relative">
+                            <iframe 
+                                title="Mapa da Casa Vero em Erechim"
+                                class="w-full h-full border-0"
+                                loading="lazy"
+                                allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://maps.google.com/maps?q=Rua+Marechal+Deodoro+39,+Centro,+Erechim+RS&t=&z=16&ie=UTF8&iwloc=&output=embed">
+                            </iframe>
+                        </div>
+
+                        <!-- Direct Interactive WhatsApp Assistant Box -->
+                        <div class="bg-cream-50 rounded-3xl p-6 border border-cream-300 shadow-warm">
+                            <h3 class="font-serif font-bold text-coffee-900 text-lg mb-2">
+                                <i class="fa-solid fa-paper-plane text-olive-600 mr-2"></i>
+                                Envie uma mensagem rápida pelo WhatsApp
+                            </h3>
+                            <p class="text-xs text-coffee-700 mb-4">
+                                Escolha o assunto para facilitar seu atendimento rápido:
+                            </p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                <button onclick="sendQuickWA('Consultar cardápio e opções do dia')" class="p-3 bg-cream-200/70 hover:bg-olive-600 hover:text-white text-coffee-900 text-xs font-semibold rounded-xl border border-cream-300 transition text-left flex flex-col justify-between space-y-1">
+                                    <span>📖 Cardápio do dia</span>
+                                    <span class="text-[10px] opacity-80">Consultar opções</span>
+                                </button>
+                                
+                                <button onclick="sendQuickWA('Informações sobre produtos do Empório')" class="p-3 bg-cream-200/70 hover:bg-olive-600 hover:text-white text-coffee-900 text-xs font-semibold rounded-xl border border-cream-300 transition text-left flex flex-col justify-between space-y-1">
+                                    <span>🍯 Empório & Geléias</span>
+                                    <span class="text-[10px] opacity-80">Ver disponibilidade</span>
+                                </button>
+
+                                <button onclick="sendQuickWA('Saber mais sobre localização e horários')" class="p-3 bg-cream-200/70 hover:bg-olive-600 hover:text-white text-coffee-900 text-xs font-semibold rounded-xl border border-cream-300 transition text-left flex flex-col justify-between space-y-1">
+                                    <span>📍 Localização & Horários</span>
+                                    <span class="text-[10px] opacity-80">Tirar dúvidas</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-coffee-950 text-cream-200 pt-16 pb-12 border-t border-coffee-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-coffee-800/80">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-5 space-y-4">
+                    <a href="#inicio" class="inline-block">
+                        <span class="font-serif text-3xl font-bold text-white tracking-tight">Casa Vero</span>
+                        <span class="block text-xs tracking-[0.2em] uppercase font-medium text-olive-400 mt-0.5">Café, Lanches & Empório</span>
+                    </a>
+                    <p class="text-xs text-cream-300 leading-relaxed max-w-sm font-light">
+                        Um convite para apreciar um bom café, descobrir sabores e aproveitar momentos especiais no Centro de Erechim, Rio Grande do Sul.
+                    </p>
+                    <div class="pt-2 flex items-center space-x-3 text-cream-300">
+                        <a href="https://wa.me/5554993991805" target="_blank" class="w-9 h-9 rounded-full bg-coffee-900 hover:bg-olive-600 text-white flex items-center justify-center transition" title="WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro,+39,+Centro,+Erechim+-+RS,+99700-314" target="_blank" class="w-9 h-9 rounded-full bg-coffee-900 hover:bg-olive-600 text-white flex items-center justify-center transition" title="Google Maps">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-serif font-semibold text-white text-sm uppercase tracking-wider">Navegação</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#inicio" class="hover:text-olive-400 transition">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-olive-400 transition">Sobre a Casa Vero</a></li>
+                        <li><a href="#cardapio" class="hover:text-olive-400 transition">Destaques do Cardápio</a></li>
+                        <li><a href="#galeria" class="hover:text-olive-400 transition">Galeria de Fotos</a></li>
+                        <li><a href="#experiencia" class="hover:text-olive-400 transition">Sua Experiência</a></li>
+                        <li><a href="#contato" class="hover:text-olive-400 transition">Contato & Localização</a></li>
+                    </ul>
+                </div>
+
+                <!-- Address Summary -->
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="font-serif font-semibold text-white text-sm uppercase tracking-wider">Atendimento & Endereço</h4>
+                    <div class="text-xs text-cream-300 space-y-2 font-light">
+                        <p><strong class="text-white">Endereço:</strong> Rua Marechal Deodoro, 39 — Centro, Erechim/RS</p>
+                        <p><strong class="text-white">Telefone:</strong> (54) 99399-1805</p>
+                        <p><strong class="text-white">Funcionamento:</strong> Segunda a Sexta até 18h30</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Disclaimer Notice -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-cream-400 gap-4 text-center md:text-left">
+                <p>
+                    &copy; 2026 Casa Vero — Café, Lanches & Empório. Todos os direitos reservados.
+                </p>
+                <div class="bg-coffee-900/80 px-4 py-2 rounded-lg border border-coffee-800 text-cream-300 max-w-lg">
+                    <i class="fa-solid fa-shield-halved text-olive-400 mr-1"></i>
+                    Proposta comercial independente desenvolvida para demonstração de presença digital e experiência web. Não substitui o canal oficial do estabelecimento.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5554993991805?text=Olá!%20Encontrei%20a%20Casa%20Vero%20pelo%20site." target="_blank" aria-label="Contato no WhatsApp" class="fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl transition duration-300 transform hover:scale-110 pulse-subtle">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Lightbox Modal for Gallery -->
+    <div id="lightbox" class="fixed inset-0 bg-coffee-950/90 z-50 hidden opacity-0 transition-opacity duration-300 backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" aria-label="Fechar galeria" class="absolute -top-12 right-0 text-white text-3xl hover:text-olive-400 transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Imagem Ampliada" class="w-full h-auto max-h-[80vh] object-contain rounded-2xl border-2 border-cream-200/20 shadow-2xl">
+            <p id="lightboxCaption" class="text-center text-cream-100 font-serif text-base mt-4 italic"></p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Navigation Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const mobileDrawerContent = document.getElementById('mobileDrawerContent');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function openDrawer() {
+            mobileDrawer.classList.remove('hidden');
+            setTimeout(() => {
+                mobileDrawer.classList.remove('opacity-0');
+                mobileDrawerContent.classList.remove('translate-x-full');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            mobileDrawerContent.classList.add('translate-x-full');
+            mobileDrawer.classList.add('opacity-0');
+            setTimeout(() => {
+                mobileDrawer.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openDrawer);
+        if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', closeDrawer);
+        if (mobileDrawer) {
+            mobileDrawer.addEventListener('click', (e) => {
+                if (e.target === mobileDrawer) closeDrawer();
+            });
+        }
+        mobileLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+        // Quick WhatsApp Message Sender Function
+        function sendQuickWA(topic) {
+            const phone = "5554993991805";
+            const text = encodeURIComponent(`Olá! Vim pelo site da Casa Vero e gostaria de informações sobre: ${topic}.`);
+            window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        }
+
+        // Image Lightbox Functions
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+
+        function openLightbox(src, caption) {
+            lightboxImg.src = src;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.remove('hidden');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+            }, 300);
+        }
+
+        // Keyboard ESC handler
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeDrawer();
+            }
+        });
+    </script>
+</body>
+</html>
